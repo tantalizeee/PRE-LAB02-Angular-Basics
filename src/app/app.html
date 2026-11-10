@@ -1,0 +1,49 @@
+<main class="resume">
+  <header class="intro">
+    <h1>{{ fullName }}</h1>
+    <p>
+      {{ location }} |
+      {{ phone }} |
+      <a [href]="'mailto:' + email">{{ email }}</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Personal Profile</h2>
+    <p>{{ profile }}</p>
+  </section>
+
+  <app-profile-card></app-profile-card>
+
+  <section>
+    <h2>Key Skills</h2>
+    <ul>
+      @for (skill of skills; track skill) {
+        <li>{{ skill }}</li>
+      }
+    </ul>
+  </section>
+
+  <section>
+  <h2>Technical Proficiencies</h2>
+  <div class="proficiencies-container">
+    @for (prof of technicalProficiencies; track prof.category) {
+      <div class="profile-card">
+        <h3>{{ prof.category }}</h3>
+        <div class="tags-list">
+          @for (item of prof.items; track item) {
+            <span class="tag">{{ item }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+
+  <section class="interaction">
+    <h2>Angular Interaction</h2>
+    <p>{{ message }}</p>
+    <button (click)="showMessage()">Click Me</button>
+  </section>
+</main>
